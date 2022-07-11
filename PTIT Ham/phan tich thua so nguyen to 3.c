@@ -1,26 +1,29 @@
-#include<stdio.h>
-#include<stdbool.h>
-int uc(int i, int j){
-	int c;
-	while(i!=j){
-		if(i>j) c=i-j;
-		else c=j-i;
-		i=j;
-		j=c;
-	}
-	return c;
-}
+#include <stdio.h>
+#include <math.h>
+typedef long long ll;
+
 int main(){
-	int a,b,i,j,m,n;
-	scanf("%d %d",&a,&b);
-	int c;
-	for(i=a;i<=b-1;i++){
-		for(j=i+1;j<=b;j++){
-			m=i;n=j;
-			uc(i,j);
-			if(uc(i,j)==1)
-			printf("(%d,%d)\n",m,n);
+	int t; scanf("%d", &t);
+	for(int id = 1; id <= t; ++id){
+		ll n; scanf("%lld", &n);
+		printf("Test %d: ",id);
+		int cnt = 0;
+		ll i = 2;
+		while(n > 1){
+			if(n % i == 0){
+				cnt++;
+				if(n == i)
+					printf("%d(%d)", i, cnt);
+				n /= i;
+			}
+			else{
+				if(cnt > 0){
+					printf("%d(%d) ", i, cnt);
+					cnt = 0;
+				}
+				i++;
+			}
 		}
+		printf("\n");
 	}
-	return 0;	
 }
