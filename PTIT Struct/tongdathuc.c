@@ -1,7 +1,6 @@
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
-// tham khao? code thay Nguyen Manh Son
 struct dathuc{
     int heso,somu;
 } P[100],Q[100];
